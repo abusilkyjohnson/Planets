@@ -47,11 +47,36 @@ public class AbuCustomAdapter extends ArrayAdapter<Planet> {
         PlanetViewHolder planetViewHolder;
         final View result;
 
-        if(convertView == null){
+        if(convertView == null)
+        {
             planetViewHolder = new PlanetViewHolder();
             //LayoutInflater: class use to instantiate & inflate xml layout file
             LayoutInflater inflater = LayoutInflater.from(getContext());
+
+            convertView = inflater.inflate(R.layout.planet_list_layout,parent,false);
+
+            //finding Views
+            planetViewHolder.planetName = (TextView) convertView.findViewById(R.id.planet_name);
+            planetViewHolder.gravity = (TextView) convertView.findViewById(R.id.gravity);
+            planetViewHolder.planetImg = (ImageView) convertView.findViewById(R.id.planet_img);
+
+            result = convertView;// helps provide clarity
+            convertView.setTag(planetViewHolder);
+        }
+        else
+        {
+            // the view is reused
+
+            planetViewHolder = (PlanetViewHolder)convertView.getTag();
+            result = convertView;
         }
 
+        //Getting the data from model class
+        planetViewHolder.planetName.setText(planet.getPlanetName());
+        planetViewHolder.gravity.setText(planet.getGravity());
+        planetViewHolder.planetImg.setImageResource(planet.getPlanetImg());
+
+
+        return result;
     }
 }

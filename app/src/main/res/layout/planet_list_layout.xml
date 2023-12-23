@@ -8,26 +8,32 @@
     >
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/planet_img"
         android:layout_width="69dp"
         android:layout_height="69dp"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="29dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="29dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/planet_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="71dp"
+        android:layout_marginTop="36dp"
         android:text="TextView"
-        tools:layout_editor_absoluteX="172dp"
-        tools:layout_editor_absoluteY="36dp" />
+        app:layout_constraintStart_toEndOf="@+id/planet_img"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/gravity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="12dp"
         android:text="TextView"
-        tools:layout_editor_absoluteX="176dp"
-        tools:layout_editor_absoluteY="69dp" />
+        app:layout_constraintStart_toEndOf="@+id/planet_img"
+        app:layout_constraintTop_toBottomOf="@+id/planet_name" />
 </androidx.constraintlayout.widget.ConstraintLayout>
